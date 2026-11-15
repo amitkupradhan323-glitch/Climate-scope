@@ -1,11 +1,14 @@
 import { create } from 'zustand';
 
 /**
- * Zustand store for ClimateScope dashboard state.
+ * Zustand store for ClimateScope dashboard and exam state.
  * Manages user interaction state: selected years, active metric,
- * theme (light by default as requested), navigation tab, and modal state.
+ * current page/view (dashboard vs exam), theme, and modal state.
  */
 export const useClimateStore = create((set, get) => ({
+  // Current Top-Level View: 'dashboard' | 'exam'
+  currentView: 'dashboard',
+
   // Default selected years
   selectedYear: 2025,
   comparisonYear: 2016,
@@ -13,7 +16,7 @@ export const useClimateStore = create((set, get) => ({
   // Active metric for historical trend charts
   activeMetric: 'temperatureAnomaly',
 
-  // Active navigation tab
+  // Active navigation tab within dashboard
   activeView: 'overview',
 
   // Active metric for detail/info modal
@@ -23,6 +26,16 @@ export const useClimateStore = create((set, get) => ({
   theme: 'light',
 
   // Actions
+  setCurrentView: (view) => {
+    set({ currentView: view });
+    // Update window hash so direct navigation and browser history work
+    if (view === 'exam') {
+      window.location.hash = 'exam';
+    } else {
+      window.location.hash = '';
+    }
+  },
+
   setSelectedYear: (year) => {
     const numYear = Number(year);
     const { comparisonYear } = get();

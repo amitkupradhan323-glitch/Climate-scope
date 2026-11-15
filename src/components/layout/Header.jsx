@@ -7,6 +7,7 @@ import {
   PieChart as PieIcon,
   RotateCw,
   Sparkles,
+  GraduationCap,
   Sun,
   Moon
 } from 'lucide-react';
@@ -15,15 +16,22 @@ import { useClimateStore } from '../../store/useClimateStore';
 export default function Header() {
   const activeView = useClimateStore((state) => state.activeView);
   const setActiveView = useClimateStore((state) => state.setActiveView);
+  const currentView = useClimateStore((state) => state.currentView);
+  const setCurrentView = useClimateStore((state) => state.setCurrentView);
   const theme = useClimateStore((state) => state.theme);
   const toggleTheme = useClimateStore((state) => state.toggleTheme);
 
   const handleNavClick = (viewId, elementId) => {
-    setActiveView(viewId);
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (currentView !== 'dashboard') {
+      setCurrentView('dashboard');
     }
+    setActiveView(viewId);
+    setTimeout(() => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   };
 
   return (
@@ -32,10 +40,13 @@ export default function Header() {
         <div className="flex items-center justify-between">
           
           {/* Logo & Brand */}
-          <div className="flex items-center gap-2.5">
+          <div 
+            onClick={() => setCurrentView('dashboard')}
+            className="flex items-center gap-2.5 cursor-pointer group"
+          >
             <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-teal-500 to-sky-500 p-[1.5px] shadow-sm">
               <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                <Globe2 className="w-4 h-4 text-cyan-600 animate-pulse" />
+                <Globe2 className="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform" />
               </div>
             </div>
             <div>
@@ -51,13 +62,13 @@ export default function Header() {
           </div>
 
           {/* Navigation Links & Actions */}
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <nav className="flex items-center gap-1" aria-label="Dashboard Navigation">
               
               <button
                 onClick={() => handleNavClick('overview', 'overview-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'overview'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'dashboard' && activeView === 'overview'
                     ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
@@ -69,8 +80,8 @@ export default function Header() {
 
               <button
                 onClick={() => handleNavClick('trends', 'trends-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'trends'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'dashboard' && activeView === 'trends'
                     ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
@@ -81,8 +92,8 @@ export default function Header() {
 
               <button
                 onClick={() => handleNavClick('charts', 'charts-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'charts'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'dashboard' && activeView === 'charts'
                     ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
@@ -94,21 +105,21 @@ export default function Header() {
 
               <button
                 onClick={() => handleNavClick('engine', 'engine-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'engine'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'dashboard' && activeView === 'engine'
                     ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <RotateCw className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Warming Engine</span>
-                <span className="sm:hidden">Science</span>
+                <span className="hidden lg:inline">Warming Engine</span>
+                <span className="lg:hidden">Science</span>
               </button>
 
               <button
                 onClick={() => handleNavClick('solutions', 'solutions-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'solutions'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'dashboard' && activeView === 'solutions'
                     ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
@@ -117,16 +128,20 @@ export default function Header() {
                 <span>Solutions</span>
               </button>
 
+              {/* Dedicated Climate Exam Tab */}
               <button
-                onClick={() => handleNavClick('about', 'about-section')}
-                className={`flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                  activeView === 'about'
-                    ? 'bg-cyan-50 text-cyan-800 border border-cyan-200 shadow-2xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                onClick={() => setCurrentView('exam')}
+                className={`flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                  currentView === 'exam'
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
                 }`}
               >
-                <BookOpen className="w-3.5 h-3.5" />
-                <span className="hidden lg:inline">About Data</span>
+                <GraduationCap className="w-3.5 h-3.5" />
+                <span>Climate Exam</span>
+                <span className="hidden sm:inline-block px-1.5 py-0.2 rounded-full text-[9px] bg-emerald-200 text-emerald-900">
+                  15 MCQs
+                </span>
               </button>
 
             </nav>

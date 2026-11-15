@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node test/verifyClimateScope.js && node test/verifyStore.js && node test/verifyDistribution.js",
+    "test": "node test/verifyClimateScope.js && node test/verifyStore.js && node test/verifyDistribution.js && node test/verifyExam.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

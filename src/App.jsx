@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useClimateStore } from './store/useClimateStore';
 import DashboardLayout from './components/layout/DashboardLayout';
 import HeroBanner from './components/layout/HeroBanner';
 import YearSelector from './components/dashboard/YearSelector';
@@ -13,8 +14,33 @@ import ImpactExplorer from './components/narrative/ImpactExplorer';
 import SolutionsMatrix from './components/narrative/SolutionsMatrix';
 import ComparisonTable from './components/dashboard/ComparisonTable';
 import AboutDataSection from './components/dashboard/AboutDataSection';
+import ClimateExam from './components/exam/ClimateExam';
 
 export default function App() {
+  const currentView = useClimateStore((state) => state.currentView);
+  const setCurrentView = useClimateStore((state) => state.setCurrentView);
+
+  // Sync hash routing (e.g. #exam opens ClimateExam directly)
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#exam') {
+        setCurrentView('exam');
+      } else if (!window.location.hash || window.location.hash === '#') {
+        setCurrentView('dashboard');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [setCurrentView]);
+
+  // If exam view is active, render the dedicated Exam page
+  if (currentView === 'exam') {
+    return <ClimateExam />;
+  }
+
+  // Otherwise render full interactive analytics dashboard
   return (
     <DashboardLayout>
       {/* 1. Hero Introduction Banner */}
