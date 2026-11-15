@@ -152,7 +152,7 @@ export default function PlanetDiagnosis() {
               <span>1. Fossil Fuels</span>
             </div>
             <p className="text-slate-500 text-[11px] leading-relaxed">
-              Coal, petroleum, and natural gas combustion remains the primary driver of global $\text{CO}_2$ emissions.
+              Coal, petroleum, and natural gas combustion remains the primary driver of global CO₂ emissions.
             </p>
           </div>
 
@@ -162,7 +162,7 @@ export default function PlanetDiagnosis() {
               <span>2. Farming & Agriculture</span>
             </div>
             <p className="text-slate-500 text-[11px] leading-relaxed">
-              Livestock enteric fermentation and rice cultivation represent the single largest anthropogenic source of atmospheric methane ($\text{CH}_4$).
+              Livestock enteric fermentation and rice cultivation represent the single largest anthropogenic source of atmospheric methane (CH₄).
             </p>
           </div>
 
