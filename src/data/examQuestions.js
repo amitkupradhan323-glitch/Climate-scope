@@ -231,3 +231,56 @@ export const EXAM_QUESTIONS = [
     pdfPage: "Pages 13 & 14"
   }
 ];
+
+// Achievement & Reward Badges Definition
+export const REWARD_BADGES = [
+  { 
+    id: 'first_spark', 
+    name: 'First Spark', 
+    icon: '🌱', 
+    desc: 'Answered your first question correctly',
+    bonus: 50,
+    check: (correct) => correct >= 1
+  },
+  { 
+    id: 'triple_blaze', 
+    name: 'Triple Blaze', 
+    icon: '🔥', 
+    desc: 'Maintained a 3-question win streak',
+    bonus: 100,
+    check: (_, streak) => streak >= 3
+  },
+  { 
+    id: 'ocean_sentinel', 
+    name: 'Ocean Sentinel', 
+    icon: '🌊', 
+    desc: 'Mastered the planetary ocean thermal questions',
+    bonus: 100,
+    check: (_, __, answers) => answers && (answers[8] === 'D' || answers[9] === 'A')
+  },
+  { 
+    id: 'climate_sage', 
+    name: 'Climate Sage', 
+    icon: '⚡', 
+    desc: 'Reached an outstanding 5-question streak',
+    bonus: 200,
+    check: (_, streak) => streak >= 5
+  },
+  { 
+    id: 'net_zero_hero', 
+    name: 'Net-Zero Hero', 
+    icon: '🌿', 
+    desc: 'Mastered global solutions & mitigation pathways',
+    bonus: 150,
+    check: (_, __, answers) => answers && (answers[13] === 'C' || answers[14] === 'A' || answers[15] === 'A')
+  },
+  { 
+    id: 'planetary_laureate', 
+    name: 'Planetary Laureate', 
+    icon: '🏆', 
+    desc: 'Scored 12+ correct answers on the examination',
+    bonus: 300,
+    check: (correct) => correct >= 12
+  }
+];
+
