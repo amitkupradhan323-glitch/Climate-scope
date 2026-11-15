@@ -1,13 +1,17 @@
 # ClimateScope — Interactive Global Warming Analytics Dashboard
 
-**ClimateScope** is a modern, responsive, and scientifically rigorous climate analytics web application built with **React**, **Vite**, **Tailwind CSS**, **Zustand**, and **Recharts**, featuring an elegant **crisp white theme** with high-contrast typography and vibrant climate color accents.
+**ClimateScope** is a modern, responsive, and scientifically rigorous climate analytics web application built with **React**, **Vite**, **Tailwind CSS**, **Zustand**, and **Recharts**, featuring an elegant **crisp white theme** with high-contrast typography, fixed top year controls, and rich data visualizations.
 
 The platform visualizes and compares global climate indicators over the last 10 completed calendar years (**2016–2025**), empowering users to select any two observation years to explore how planetary vital signs have evolved across the decade.
+
+🌐 **Live Deployment**: [https://amitkupradhan323-glitch.github.io/Climate-scope/](https://amitkupradhan323-glitch.github.io/Climate-scope/)  
+📦 **GitHub Repository**: [https://github.com/amitkupradhan323-glitch/Climate-scope](https://github.com/amitkupradhan323-glitch/Climate-scope)
 
 ---
 
 ## 🎨 Design & White Theme
 
+- **Fixed Top Year Changing Section**: The year selection controls remain pinned to the top of the viewport (`sticky top-14 sm:top-16 z-40`) with a blur backdrop and drop shadow, keeping the Primary Year, Compare Year, Swap, and Presets accessible while the dashboard scrolls underneath.
 - **Clean White Aesthetics**: Pure white surfaces (`#FFFFFF`), subtle slate backgrounds (`#F8FAFC`), soft borders (`#E2E8F0`), and restrained shadows (`shadow-sm`, `shadow-md`).
 - **High Contrast & Readability**: Deep slate headings (`text-slate-900`), balanced descriptions (`text-slate-600`), and tabular mono numerals (`font-mono`).
 - **Vibrant Accent Palette**:
@@ -20,18 +24,18 @@ The platform visualizes and compares global climate indicators over the last 10 
 
 ## 📊 Recharts Data Visualizations
 
-ClimateScope leverages **Recharts** for rich, responsive data visualization:
-
-1. **Interactive 10-Year Historical Trend Chart**:
+1. **Interactive 10-Year Historical Trend Chart (`TrendChart.jsx`)**:
    - Area and line visualizations for all 6 climate metrics.
    - Dual-year highlighting: Displays distinct pulsating markers and reference lines for the **Primary Year** and **Comparison Year**.
    - Custom white-theme interactive tooltips showing exact values, preliminary/final status, and deltas relative to the reference year.
-2. **Direct Year-by-Year Comparison Bar Chart**:
+2. **Direct Year-by-Year Comparison Bar Graph (`ClimateBarChart.jsx`)**:
    - Side-by-side comparative column chart displaying the two chosen observation years across all six indicators.
-3. **10-Year Mini Sparklines**:
+   - Indicator delta divergence bars showing net physical shifts ($\Delta$).
+3. **Planetary Proportions & Carbon Shares (Pie Chart - `ClimatePieChart.jsx`)**:
+   - Fossil fuel $\text{CO}_2$ emissions breakdown by fuel type (Coal, Oil, Natural Gas, Cement).
+   - Earth's planetary heat inventory donut chart (Upper Ocean 64%, Deep Ocean 25%, Land 6%, Ice Melt 4%, Atmosphere 1%).
+4. **10-Year Mini Sparklines (`SparklineChart.jsx`)**:
    - Pixel-crisp sparklines on each of the six KPI cards highlighting the exact dual-year positions.
-4. **All 6 Indicators Grid View**:
-   - Simultaneous multi-chart overview allowing users to view all planetary vital signs at a glance.
 
 ---
 
@@ -50,58 +54,41 @@ ClimateScope tracks six planetary vital signs sourced directly from authoritativ
 
 ---
 
-## 🔬 Scientific Data Integrity & Mathematical Rules
+## 🚀 GitHub Pages Deployment Setup
 
-1. **Anomaly vs. Physical Quantity Distinction**:
-   - Temperature anomalies and sea levels are referenced to historic baseline periods (1951–1980 and 1993, respectively). Calculating a percentage change on an anomaly relative to an arbitrary baseline creates mathematical distortions. ClimateScope strictly enforces **absolute deltas** ($\Delta\text{°C}$ and $\Delta\text{mm}$) for these indicators.
-   - For physical ratio scales such as atmospheric $\text{CO}_2$ concentration ($\text{ppm}$), annual emissions ($\text{GtCO}_2/\text{year}$), and Arctic sea ice extent ($\text{million km}^2$), proportional percentage changes ($\%$) are fully calculated and displayed.
+This repository is pre-configured for automated deployment to GitHub Pages via **GitHub Actions** and manual script.
 
-2. **Consistent Observations**:
-   - Arctic sea ice strictly uses the **September monthly mean** for every year, eliminating single-day weather noise and ensuring apples-to-apples multi-year comparisons.
-   - Global $\text{CO}_2$ emissions isolate fossil-fuel combustion and industrial processes to prevent masking of anthropogenic trends by volatile land-use change estimates.
+### Option 1: Automatic Deployment via GitHub Actions (Recommended)
+1. Go to your repository on GitHub: `https://github.com/amitkupradhan323-glitch/Climate-scope`
+2. Navigate to **Settings** > **Pages** (under the "Code and automation" sidebar section).
+3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. That's it! Every push to `main` automatically triggers `.github/workflows/deploy.yml`, tests the code, builds the production bundle, and deploys to:  
+   `https://amitkupradhan323-glitch.github.io/Climate-scope/`
 
-3. **Status Transparency**:
-   - Completed calendar years 2016 through 2024 are marked as **Final** peer-reviewed values.
-   - Year 2025 values are clearly badged as **Preliminary** observational consensus updates.
-
----
-
-## 🛠️ Technology Stack
-
-- **React 18** + **Vite 6** (Blazing-fast build & HMR)
-- **Zustand 5** (Lightweight global state management without Context/Redux boilerplate)
-- **Recharts 2.15** (Responsive time-series and comparative bar charts)
-- **Tailwind CSS 3** (Custom white theme styling with subtle contrast surfaces)
-- **Lucide React** (Clean scientific iconography)
+### Option 2: Manual Deployment via `gh-pages`
+You can also deploy manually at any time by running:
+```powershell
+npm run deploy
+```
+This automatically builds the project and pushes the `dist/` directory to the `gh-pages` branch.
 
 ---
 
-## ⚡ Installation & Execution
+## ⚡ Local Installation & Execution
 
-### 1. Install Dependencies
-```bash
+```powershell
+# 1. Install dependencies
 npm install
-```
 
-### 2. Start the Development Server
-```bash
+# 2. Start development server
 npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
-### 3. Run Automated Verification Tests
-```bash
+# 3. Run automated verification test suite (83 assertions)
 npm test
-```
-Executes all 51 automated unit and data integrity tests.
 
-### 4. Build for Production
-```bash
+# 4. Build for production
 npm run build
-```
-Generates an optimized production bundle in the `dist/` directory.
 
-### 5. Preview Production Build
-```bash
+# 5. Preview production build locally
 npm run preview
 ```

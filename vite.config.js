@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Climate-scope/',
   plugins: [react()],
   server: {
     port: 3000,
@@ -13,7 +14,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
           'vendor-recharts': ['recharts'],
           'vendor-icons': ['lucide-react'],
           'vendor-state': ['zustand']
