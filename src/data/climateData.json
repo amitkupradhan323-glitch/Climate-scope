@@ -1,0 +1,365 @@
+{
+  "metadata": {
+    "title": "ClimateScope Global Climate Observations",
+    "coverageStartYear": 2016,
+    "coverageEndYear": 2025,
+    "totalYears": 10,
+    "lastUpdated": "November 2025",
+    "datasetVersion": "2025.11-RELEASE",
+    "curatedBy": "ClimateScope Science & Analytics Working Group",
+    "license": "Open Data / Public Domain Scientific Archives",
+    "isDemoData": false
+  },
+  "observations": [
+    {
+      "year": 2016,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 1.02,
+          "status": "final",
+          "note": "Super El Niño peak; first year surpassing +1.0°C in GISTEMP"
+        },
+        "atmosphericCO2": {
+          "value": 404.41,
+          "status": "final",
+          "note": "First calendar year where global average permanently exceeded 400 ppm"
+        },
+        "co2Emissions": {
+          "value": 35.45,
+          "status": "final",
+          "note": "Fossil fuel and industrial combustion emissions"
+        },
+        "seaLevel": {
+          "value": 80.8,
+          "status": "final",
+          "note": "GMSL rise relative to 1993 baseline"
+        },
+        "arcticSeaIce": {
+          "value": 4.53,
+          "status": "final",
+          "note": "September monthly average extent"
+        },
+        "oceanHeatContent": {
+          "value": 17.8,
+          "status": "final",
+          "note": "0–2000m layer heat anomaly relative to 1971–2000"
+        }
+      }
+    },
+    {
+      "year": 2017,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 0.93,
+          "status": "final",
+          "note": "Warmest non-El Niño year on record at the time"
+        },
+        "atmosphericCO2": {
+          "value": 406.76,
+          "status": "final",
+          "note": "Global annual mean NOAA GML"
+        },
+        "co2Emissions": {
+          "value": 35.93,
+          "status": "final",
+          "note": "Growth resumed following plateau of 2014–2016"
+        },
+        "seaLevel": {
+          "value": 82.5,
+          "status": "final",
+          "note": "Multi-satellite blended altimetry"
+        },
+        "arcticSeaIce": {
+          "value": 4.82,
+          "status": "final",
+          "note": "September monthly mean extent"
+        },
+        "oceanHeatContent": {
+          "value": 19.3,
+          "status": "final",
+          "note": "Continued heat uptake in upper 2000m"
+        }
+      }
+    },
+    {
+      "year": 2018,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 0.85,
+          "status": "final",
+          "note": "Moderate La Niña influence in early year"
+        },
+        "atmosphericCO2": {
+          "value": 408.72,
+          "status": "final",
+          "note": "+2.0 ppm annual increase"
+        },
+        "co2Emissions": {
+          "value": 36.65,
+          "status": "final",
+          "note": "Strong growth driven by coal and oil demand"
+        },
+        "seaLevel": {
+          "value": 86.2,
+          "status": "final",
+          "note": "Accelerating rate of thermal expansion and ice loss"
+        },
+        "arcticSeaIce": {
+          "value": 4.71,
+          "status": "final",
+          "note": "September monthly average"
+        },
+        "oceanHeatContent": {
+          "value": 20.2,
+          "status": "final",
+          "note": "Unbroken decade-long heat accumulation"
+        }
+      }
+    },
+    {
+      "year": 2019,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 0.98,
+          "status": "final",
+          "note": "Second warmest year recorded to that date"
+        },
+        "atmosphericCO2": {
+          "value": 411.66,
+          "status": "final",
+          "note": "Crossed 410 ppm global average threshold"
+        },
+        "co2Emissions": {
+          "value": 36.70,
+          "status": "final",
+          "note": "Pre-pandemic emissions peak"
+        },
+        "seaLevel": {
+          "value": 92.4,
+          "status": "final",
+          "note": "Marked acceleration in Greenland mass loss"
+        },
+        "arcticSeaIce": {
+          "value": 4.36,
+          "status": "final",
+          "note": "Tied second lowest September mean on record"
+        },
+        "oceanHeatContent": {
+          "value": 22.1,
+          "status": "final",
+          "note": "Rapid warming across Atlantic and Southern oceans"
+        }
+      }
+    },
+    {
+      "year": 2020,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 1.02,
+          "status": "final",
+          "note": "Tied with 2016 despite emerging La Niña conditions"
+        },
+        "atmosphericCO2": {
+          "value": 414.24,
+          "status": "final",
+          "note": "CO2 levels continued climbing despite economic slowdown"
+        },
+        "co2Emissions": {
+          "value": 34.81,
+          "status": "final",
+          "note": "-5.2% dip resulting from global COVID-19 lockdowns"
+        },
+        "seaLevel": {
+          "value": 95.1,
+          "status": "final",
+          "note": "Steady multi-decadal upward trajectory"
+        },
+        "arcticSeaIce": {
+          "value": 4.00,
+          "status": "final",
+          "note": "Second lowest September minimum in satellite record"
+        },
+        "oceanHeatContent": {
+          "value": 23.4,
+          "status": "final",
+          "note": "Ocean warming absorbed >90% of excess Earth heat"
+        }
+      }
+    },
+    {
+      "year": 2021,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 0.85,
+          "status": "final",
+          "note": "Persistent cooling influence of La Niña"
+        },
+        "atmosphericCO2": {
+          "value": 416.45,
+          "status": "final",
+          "note": "Global annual mean NOAA GML"
+        },
+        "co2Emissions": {
+          "value": 36.82,
+          "status": "final",
+          "note": "Rapid post-lockdown rebound in fossil fuel combustion"
+        },
+        "seaLevel": {
+          "value": 99.3,
+          "status": "final",
+          "note": "Approaching 100 mm milestone above 1993"
+        },
+        "arcticSeaIce": {
+          "value": 4.92,
+          "status": "final",
+          "note": "Cooler summer weather slowed late-season melt"
+        },
+        "oceanHeatContent": {
+          "value": 24.8,
+          "status": "final",
+          "note": "New global ocean heat content high"
+        }
+      }
+    },
+    {
+      "year": 2022,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 0.90,
+          "status": "final",
+          "note": "Rare third consecutive 'triple-dip' La Niña year"
+        },
+        "atmosphericCO2": {
+          "value": 418.56,
+          "status": "final",
+          "note": "Persistent +2.1 ppm/year accumulation rate"
+        },
+        "co2Emissions": {
+          "value": 37.15,
+          "status": "final",
+          "note": "Continued expansion of global energy demand"
+        },
+        "seaLevel": {
+          "value": 101.2,
+          "status": "final",
+          "note": "Crossed 100 mm above 1993 baseline"
+        },
+        "arcticSeaIce": {
+          "value": 4.87,
+          "status": "final",
+          "note": "September average well below 1981-2010 normal"
+        },
+        "oceanHeatContent": {
+          "value": 26.1,
+          "status": "final",
+          "note": "Unprecedented stratification and marine heatwaves"
+        }
+      }
+    },
+    {
+      "year": 2023,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 1.18,
+          "status": "final",
+          "note": "Substantial global heat record, El Niño onset"
+        },
+        "atmosphericCO2": {
+          "value": 421.08,
+          "status": "final",
+          "note": "Crossed 420 ppm annual global benchmark"
+        },
+        "co2Emissions": {
+          "value": 37.40,
+          "status": "final",
+          "note": "Global Carbon Project estimated fossil emissions"
+        },
+        "seaLevel": {
+          "value": 107.5,
+          "status": "final",
+          "note": "Sharply elevated rate linked to extreme ocean heat"
+        },
+        "arcticSeaIce": {
+          "value": 4.37,
+          "status": "final",
+          "note": "Fifth lowest September extent recorded"
+        },
+        "oceanHeatContent": {
+          "value": 28.5,
+          "status": "final",
+          "note": "Record-shattering global sea surface and subsurface heat"
+        }
+      }
+    },
+    {
+      "year": 2024,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 1.28,
+          "status": "final",
+          "note": "Warmest year in NASA GISTEMP historical instrumental record"
+        },
+        "atmosphericCO2": {
+          "value": 424.12,
+          "status": "final",
+          "note": "Accelerated annual growth exceeding +3.0 ppm"
+        },
+        "co2Emissions": {
+          "value": 37.80,
+          "status": "final",
+          "note": "Global Carbon Budget preliminary annual analysis"
+        },
+        "seaLevel": {
+          "value": 112.4,
+          "status": "final",
+          "note": "Driven by both accelerated thermal expansion and ice sheet runoff"
+        },
+        "arcticSeaIce": {
+          "value": 4.28,
+          "status": "final",
+          "note": "Substantial deficit relative to 30-year climatology"
+        },
+        "oceanHeatContent": {
+          "value": 30.6,
+          "status": "final",
+          "note": "Sixth consecutive year of all-time record ocean heat content"
+        }
+      }
+    },
+    {
+      "year": 2025,
+      "metrics": {
+        "temperatureAnomaly": {
+          "value": 1.19,
+          "status": "preliminary",
+          "note": "Consensus preliminary 12-month mean across GISTEMP/Copernicus"
+        },
+        "atmosphericCO2": {
+          "value": 426.90,
+          "status": "preliminary",
+          "note": "Preliminary annual average from NOAA GML monitoring network"
+        },
+        "co2Emissions": {
+          "value": 38.10,
+          "status": "preliminary",
+          "note": "Global Carbon Project preliminary projection"
+        },
+        "seaLevel": {
+          "value": 116.8,
+          "status": "preliminary",
+          "note": "Sentinel-6 / Jason-series preliminary annual mean"
+        },
+        "arcticSeaIce": {
+          "value": 4.22,
+          "status": "preliminary",
+          "note": "NSIDC preliminary September monthly average"
+        },
+        "oceanHeatContent": {
+          "value": 32.2,
+          "status": "preliminary",
+          "note": "NOAA NCEI preliminary 0–2000m annual heat anomaly"
+        }
+      }
+    }
+  ]
+}
