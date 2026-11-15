@@ -56,21 +56,23 @@ ClimateScope tracks six planetary vital signs sourced directly from authoritativ
 
 ## 🚀 GitHub Pages Deployment Setup
 
-This repository is pre-configured for automated deployment to GitHub Pages via **GitHub Actions** and manual script.
+### Quick Setup in 2 Simple Steps:
 
-### Option 1: Automatic Deployment via GitHub Actions (Recommended)
-1. Go to your repository on GitHub: `https://github.com/amitkupradhan323-glitch/Climate-scope`
-2. Navigate to **Settings** > **Pages** (under the "Code and automation" sidebar section).
-3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
-4. That's it! Every push to `main` automatically triggers `.github/workflows/deploy.yml`, tests the code, builds the production bundle, and deploys to:  
-   `https://amitkupradhan323-glitch.github.io/Climate-scope/`
+1. Open your repository on GitHub:
+   [https://github.com/amitkupradhan323-glitch/Climate-scope/settings/pages](https://github.com/amitkupradhan323-glitch/Climate-scope/settings/pages)
+2. Under **"Build and deployment"** > **"Source"**:
+   - Select: **Deploy from a branch**
+   - Branch: **`gh-pages`**
+   - Folder: **`/ (root)`**
+   - Click **Save**!
 
-### Option 2: Manual Deployment via `gh-pages`
-You can also deploy manually at any time by running:
-```powershell
-npm run deploy
-```
-This automatically builds the project and pushes the `dist/` directory to the `gh-pages` branch.
+> **Why this works**: By deploying from the `gh-pages` branch, you completely avoid the *"Branch main is not allowed to deploy to github-pages due to environment protection rules"* error. The GitHub Action in `.github/workflows/deploy.yml` automatically builds the app and updates the `gh-pages` branch on every push to `main`!
+
+### Alternatively (If you want to use the GitHub Actions environment):
+If you prefer setting Source to **GitHub Actions**, allow `main` in the environment settings:
+1. Go to **Settings** > **Environments** > click on **`github-pages`**.
+2. Under **Deployment branches**, click **Add deployment branch rule**, type `main`, and click **Add rule**.
+3. Re-run the failed workflow.
 
 ---
 
